@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tugas_akhir/screens/shopping_cart.dart';
 import 'package:tugas_akhir/screens/wishlist_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../screens/custom.dart';
 
 void main() {
   runApp(const MyApp());
@@ -58,7 +59,7 @@ class _MyAppState extends State<MyApp> {
     'home': const HomeScreen(),
     'wishlist': const WishList(),
     'cart': const ShoppingCartForm(),
-    'customize': const HomeScreen(),
+    'customize': const Custom(),
     'products': const HomeScreen(),
   };
 
@@ -94,6 +95,7 @@ class _MyAppState extends State<MyApp> {
         '/wishlist': (ctx) => const WishList(),
         '/cart': (ctx) => const ShoppingCartForm(),
         '/home': (ctx) => const HomeScreen(),
+        '/custom': (context) => const Custom()
       },
       home: Scaffold(
         appBar: AppBar(
