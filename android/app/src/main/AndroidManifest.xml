@@ -1,15 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tugas_akhir">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <!-- Required to fetch data from the internet. -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-   <application
-=======
-=======
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -21,10 +11,6 @@
       </intent>
     </queries>
     <application
-<<<<<<< HEAD
->>>>>>> 9d6329c7957d9f45d9de69d8e37e7a24c0886782
-=======
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
         android:label="tugas_akhir"
         android:icon="@mipmap/ic_launcher">
         <activity

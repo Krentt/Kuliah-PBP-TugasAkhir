@@ -21,7 +21,7 @@ class _BelajarFormState extends State<BelajarForm> {
   String? dropdownValueSize;
   String? dropdownValueModel;
   String? dropdownValueColor;
-  File? valueType;
+  var valueType;
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +170,7 @@ class _BelajarFormState extends State<BelajarForm> {
                   if (value == null)
                     return "Please select a photo!";
                   else return null;  },
-                initialValue: null, //File("some source")
+                initialValue: valueType, //File("some source")
               ),
               SizedBox(
                 height: 20,
@@ -189,6 +189,7 @@ class _BelajarFormState extends State<BelajarForm> {
                       borderRadius: BorderRadius.all(Radius.circular(16.0))),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
                       showDialog(
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
@@ -217,7 +218,7 @@ class _BelajarFormState extends State<BelajarForm> {
                                   TextButton(
                                       child: const Text('Ok'),
                                     onPressed: () async{
-                                      final response = await http.post(Uri.parse('https://pbp-c07.herokuapp.com/add_custom/'),
+                                      final response = await http.post(Uri.parse('http://127.0.0.1:8000/add_custom/'),
                                       headers: <String, String>{
                                         'Content-Type': 'application/json; charset=UTF-8'
                                       },
@@ -226,7 +227,7 @@ class _BelajarFormState extends State<BelajarForm> {
                                           'size': dropdownValueSize,
                                           'color': dropdownValueColor,
                                           'model': dropdownValueModel,
-                                          'style': valueType.toString(),
+                                          'style': valueType != null ? 'data:image/png;base64,' + base64Encode(valueType.readAsBytesSync()) : '',
                                         }));
                                       // Navigator.pop(context);
                                     }
