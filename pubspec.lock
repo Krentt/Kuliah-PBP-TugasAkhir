@@ -69,16 +69,18 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.11"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -91,42 +93,19 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "9.2.0"
-<<<<<<< HEAD
->>>>>>> 9d6329c7957d9f45d9de69d8e37e7a24c0886782
-=======
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
   http:
     dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "0.13.4"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
     version: "0.12.2"
-=======
-    version: "0.13.4"
->>>>>>> 9d6329c7957d9f45d9de69d8e37e7a24c0886782
-=======
-    version: "0.12.2"
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
->>>>>>> 963b0b4d3c550a33c88af5af3b053639d2284274
   http_parser:
     dependency: transitive
     description:
       name: http_parser
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "4.0.0"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
     version: "3.1.4"
   image_cropper:
     dependency: transitive
@@ -156,12 +135,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.6"
-<<<<<<< HEAD
-=======
-    version: "4.0.0"
-=======
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
->>>>>>> 963b0b4d3c550a33c88af5af3b053639d2284274
   js:
     dependency: transitive
     description:
@@ -169,10 +142,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.3"
-<<<<<<< HEAD
->>>>>>> 9d6329c7957d9f45d9de69d8e37e7a24c0886782
-=======
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
   lints:
     dependency: transitive
     description:
@@ -201,12 +170,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
   pedantic:
     dependency: transitive
     description:
@@ -214,31 +177,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.11.1"
-<<<<<<< HEAD
-=======
->>>>>>> 9d6329c7957d9f45d9de69d8e37e7a24c0886782
-=======
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
->>>>>>> 963b0b4d3c550a33c88af5af3b053639d2284274
   plugin_platform_interface:
     dependency: transitive
     description:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "2.0.2"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
     version: "1.0.3"
-=======
-    version: "2.0.2"
->>>>>>> 9d6329c7957d9f45d9de69d8e37e7a24c0886782
-=======
-    version: "1.0.3"
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
->>>>>>> 963b0b4d3c550a33c88af5af3b053639d2284274
   sky_engine:
     dependency: transitive
     description: flutter
@@ -306,21 +251,7 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.17"
-  url_launcher_android:
-    dependency: transitive
-    description:
-      name: url_launcher_android
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "6.0.13"
-  url_launcher_ios:
-    dependency: transitive
-    description:
-      name: url_launcher_ios
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "6.0.13"
+    version: "6.0.5"
   url_launcher_linux:
     dependency: transitive
     description:
@@ -341,7 +272,7 @@ packages:
       name: url_launcher_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4"
+    version: "2.0.1"
   url_launcher_web:
     dependency: transitive
     description:
@@ -364,20 +295,5 @@ packages:
     source: hosted
     version: "2.1.0"
 sdks:
-<<<<<<< HEAD
-  dart: ">=2.14.0 <3.0.0"
-  flutter: ">=2.5.0"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  dart: ">=2.12.0 <3.0.0"
-  flutter: ">=1.20.0"
-=======
-  dart: ">=2.14.0 <3.0.0"
-  flutter: ">=2.5.0"
->>>>>>> 9d6329c7957d9f45d9de69d8e37e7a24c0886782
-=======
   dart: ">=2.12.0 <3.0.0"
   flutter: ">=2.0.0"
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
->>>>>>> 963b0b4d3c550a33c88af5af3b053639d2284274

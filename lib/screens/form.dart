@@ -148,7 +148,6 @@ class _BelajarFormState extends State<BelajarForm> {
                   }).toList(),
                 ),
               ),
-
               ImagePickerFormField(
                 child: Container(
                   height: 40,
@@ -169,13 +168,14 @@ class _BelajarFormState extends State<BelajarForm> {
                 validator: (File value) {
                   if (value == null)
                     return "Please select a photo!";
-                  else return null;  },
+                  else
+                    return null;
+                },
                 initialValue: null, //File("some source")
               ),
               SizedBox(
                 height: 20,
               ),
-
               ButtonTheme(
                 minWidth: 200.0,
                 height: 50.0,
@@ -189,6 +189,7 @@ class _BelajarFormState extends State<BelajarForm> {
                       borderRadius: BorderRadius.all(Radius.circular(16.0))),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
                       showDialog(
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
@@ -216,21 +217,23 @@ class _BelajarFormState extends State<BelajarForm> {
                                   ),
                                   TextButton(
                                       child: const Text('Ok'),
-                                    onPressed: () async{
-                                      final response = await http.post(Uri.parse('https://pbp-c07.herokuapp.com/add_custom/'),
-                                      headers: <String, String>{
-                                        'Content-Type': 'application/json; charset=UTF-8'
-                                      },
-                                        body: jsonEncode(<String, String?>{
-                                          'sex': dropdownValue,
-                                          'size': dropdownValueSize,
-                                          'color': dropdownValueColor,
-                                          'model': dropdownValueModel,
-                                          'style': valueType.toString(),
-                                        }));
-                                      // Navigator.pop(context);
-                                    }
-                                  ),
+                                      onPressed: () async {
+                                        final response = await http.post(
+                                            Uri.parse(
+                                                'https://pbp-c07.herokuapp.com/add_custom/'),
+                                            headers: <String, String>{
+                                              'Content-Type':
+                                                  'application/json; charset=UTF-8'
+                                            },
+                                            body: jsonEncode(<String, String?>{
+                                              'sex': dropdownValue,
+                                              'size': dropdownValueSize,
+                                              'color': dropdownValueColor,
+                                              'model': dropdownValueModel,
+                                              'style': valueType.toString(),
+                                            }));
+                                        // Navigator.pop(context);
+                                      }),
                                 ],
                               ));
                     }

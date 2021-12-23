@@ -1,4 +1,0 @@
-com/gourango/image_picker_form_field/ImagePickerFormFieldPlugin.java
- com.gourango.image_picker_form_field.ImagePickerFormFieldPlugin
-com/gourango/image_picker_form_field/BuildConfig.java
- com.gourango.image_picker_form_field.BuildConfig

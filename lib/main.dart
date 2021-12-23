@@ -3,10 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import '../screens/custom.dart';
-=======
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
 import 'package:tugas_akhir/screens/home_screen.dart';
 import 'package:tugas_akhir/screens/masker_detail_screen.dart';
 import 'package:http/http.dart' as http;
@@ -14,10 +11,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tugas_akhir/screens/shopping_cart.dart';
 import 'package:tugas_akhir/screens/wishlist_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
-<<<<<<< HEAD
-=======
-import '../screens/custom.dart';
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
 
 void main() {
   runApp(const MyApp());
@@ -102,10 +95,7 @@ class _MyAppState extends State<MyApp> {
         '/wishlist': (ctx) => const WishList(),
         '/cart': (ctx) => const ShoppingCartForm(),
         '/home': (ctx) => const HomeScreen(),
-<<<<<<< HEAD
-=======
         '/custom': (context) => const Custom()
->>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
       },
       home: Scaffold(
         appBar: AppBar(
@@ -224,6 +214,7 @@ class _MyAppState extends State<MyApp> {
                                             msg =
                                                 "You have already subscribed to our newletter";
                                           }
+                                          print("hello");
                                           MyApp.snackbarKey.currentState
                                               ?.showSnackBar(
                                             SnackBar(
