@@ -3,7 +3,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import '../screens/custom.dart';
+=======
+>>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
 import 'package:tugas_akhir/screens/home_screen.dart';
 import 'package:tugas_akhir/screens/masker_detail_screen.dart';
 import 'package:http/http.dart' as http;
@@ -11,6 +14,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tugas_akhir/screens/shopping_cart.dart';
 import 'package:tugas_akhir/screens/wishlist_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
+<<<<<<< HEAD
+=======
+import '../screens/custom.dart';
+>>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
 
 void main() {
   runApp(const MyApp());
@@ -27,9 +34,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
-  late Widget _scafBody;
-  late String _scafTitle;
-
 
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
@@ -62,7 +66,7 @@ class _MyAppState extends State<MyApp> {
     'home': const HomeScreen(),
     'wishlist': const WishList(),
     'cart': const ShoppingCartForm(),
-    'customize': const HomeScreen(),
+    'customize': const Custom(),
     'products': const HomeScreen(),
   };
 
@@ -81,26 +85,6 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  final Map<String, Widget> _drawerPage = {
-    'customize': const Custom(),
-  };
-
-  final Map<String, String> _titles = {
-    'home': "Tugas Akhir PBP-C07",
-    'wishlist': 'Wishlist',
-    'cart': 'Shopping Cart',
-    'customize': 'Customize Masker',
-    'products': 'Products'
-  };
-
-  void _drawerTap(String page) {
-    setState(() {
-      _scafBody = _drawerPage[page] as Widget;
-      _scafTitle = _titles[page].toString();
-    });
-  }
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -118,6 +102,10 @@ class _MyAppState extends State<MyApp> {
         '/wishlist': (ctx) => const WishList(),
         '/cart': (ctx) => const ShoppingCartForm(),
         '/home': (ctx) => const HomeScreen(),
+<<<<<<< HEAD
+=======
+        '/custom': (context) => const Custom()
+>>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
       },
       home: Scaffold(
         appBar: AppBar(

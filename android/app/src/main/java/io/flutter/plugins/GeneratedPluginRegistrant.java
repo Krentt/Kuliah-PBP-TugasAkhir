@@ -17,6 +17,9 @@ public final class GeneratedPluginRegistrant {
   public static void registerWith(@NonNull FlutterEngine flutterEngine) {
     try {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
       flutterEngine.getPlugins().add(new io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin flutter_plugin_android_lifecycle, io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin", e);
@@ -35,11 +38,19 @@ public final class GeneratedPluginRegistrant {
       flutterEngine.getPlugins().add(new com.gourango.image_picker_form_field.ImagePickerFormFieldPlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin image_picker_form_field, com.gourango.image_picker_form_field.ImagePickerFormFieldPlugin", e);
+<<<<<<< HEAD
 =======
       flutterEngine.getPlugins().add(new io.flutter.plugins.urllauncher.UrlLauncherPlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin url_launcher_android, io.flutter.plugins.urllauncher.UrlLauncherPlugin", e);
 >>>>>>> 9d6329c7957d9f45d9de69d8e37e7a24c0886782
+=======
+    }
+    try {
+      flutterEngine.getPlugins().add(new io.flutter.plugins.urllauncher.UrlLauncherPlugin());
+    } catch(Exception e) {
+      Log.e(TAG, "Error registering plugin url_launcher, io.flutter.plugins.urllauncher.UrlLauncherPlugin", e);
+>>>>>>> 586a527358bd2e0f54bda2308a3d8236410ad61e
     }
   }
 }
