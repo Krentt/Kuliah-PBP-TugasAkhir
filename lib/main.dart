@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
         '/wishlist': (ctx) => const WishList(),
         '/cart': (ctx) => const ShoppingCartForm(),
         '/home': (ctx) => const HomeScreen(),
-        '/custom': (context) => Custom()
+        '/custom': (context) => const Custom()
       },
       home: Scaffold(
         appBar: AppBar(
