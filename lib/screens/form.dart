@@ -217,7 +217,7 @@ class _BelajarFormState extends State<BelajarForm> {
                                   TextButton(
                                       child: const Text('Ok'),
                                     onPressed: () async{
-                                      final response = await http.post(Uri.parse('http://127.0.0.1:8000/add_custom/'),
+                                      final response = await http.post(Uri.parse('https://pbp-c07.herokuapp.com/add_custom/'),
                                       headers: <String, String>{
                                         'Content-Type': 'application/json; charset=UTF-8'
                                       },
@@ -228,7 +228,7 @@ class _BelajarFormState extends State<BelajarForm> {
                                           'model': dropdownValueModel,
                                           'style': valueType.toString(),
                                         }));
-                                      Navigator.pop(context);
+                                      // Navigator.pop(context);
                                     }
                                   ),
                                 ],

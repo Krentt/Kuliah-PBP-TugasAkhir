@@ -7,10 +7,10 @@ class ProductImages extends StatefulWidget {
 
 class _ProductImagesState extends State<ProductImages> {
   var imagelist = [
-    "images/maskers3.png",
-    "images/CLOTH.jpeg",
-    "images/PITTA.jpeg",
-    "images/SPONGE.jpeg"
+    "assets/images/maskers3.png",
+    "assets/images/CLOTH.jpeg",
+    "assets/images/PITTA.jpeg",
+    "assets/images/SPONGE.jpeg"
   ];
   int selectedImage = 0;
   @override
