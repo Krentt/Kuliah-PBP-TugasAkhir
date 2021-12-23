@@ -11,8 +11,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tugas_akhir/screens/shopping_cart.dart';
 import 'package:tugas_akhir/screens/wishlist_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../screens/custom.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -216,6 +214,7 @@ class _MyAppState extends State<MyApp> {
                                             msg =
                                                 "You have already subscribed to our newletter";
                                           }
+                                          print("hello");
                                           MyApp.snackbarKey.currentState
                                               ?.showSnackBar(
                                             SnackBar(
