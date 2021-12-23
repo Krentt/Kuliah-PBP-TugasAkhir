@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/custom.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,12 +14,35 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
+  late Widget _scafBody;
+  late String _scafTitle;
+
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
+  final Map<String, Widget> _drawerPage = {
+    'customize': const Custom(),
+  };
+
+  final Map<String, String> _titles = {
+    'home': "Tugas Akhir PBP-C07",
+    'wishlist': 'Wishlist',
+    'cart': 'Shopping Cart',
+    'customize': 'Customize Masker',
+    'products': 'Products'
+  };
+
+  void _drawerTap(String page) {
+    setState(() {
+      _scafBody = _drawerPage[page] as Widget;
+      _scafTitle = _titles[page].toString();
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +56,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: {
         // '/products: (context) => const ProductPage(),
+        '/custom': (context) => Custom()
       },
       home: Scaffold(
         appBar: AppBar(
@@ -39,7 +64,7 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: Colors.black,
         ),
         body: Container(), // home page taro sini
-        drawer: Drawer(
+        drawer:Builder(builder: (context) => Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
@@ -83,12 +108,14 @@ class _MyAppState extends State<MyApp> {
                 title: const Text("Customize Masker"),
                 onTap: () {
                   // do stuff
+                  _drawerTap("customize");
                   Navigator.pop(context);
                 },
               ),
             ],
           ),
-        ),
+        ),),
+
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
