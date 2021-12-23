@@ -1,10 +1,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tugas_akhir">
+<<<<<<< HEAD
     <!-- Required to fetch data from the internet. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA"/>
    <application
+=======
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <queries>
+      <!-- If your app opens https URLs -->
+      <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="https" />
+      </intent>
+    </queries>
+    <application
+>>>>>>> 9d6329c7957d9f45d9de69d8e37e7a24c0886782
         android:label="tugas_akhir"
         android:icon="@mipmap/ic_launcher">
         <activity
