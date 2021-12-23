@@ -9,7 +9,7 @@
         <action android:name="android.intent.action.VIEW" />
         <data android:scheme="https" />
       </intent>
-    </queries>>
+    </queries>
     <application
         android:label="tugas_akhir"
         android:icon="@mipmap/ic_launcher">

@@ -2,7 +2,6 @@ image: cirrusci/flutter:2.5.3
 
 stages:
   - build
-  - deploy
 
 before_script:
   - export GRADLE_USER_HOME=$(pwd)/android/.gradle
@@ -19,7 +18,7 @@ flutter_build_android: #Job name
     - flutter packages get
     - flutter clean
   script:
-     - flutter build apk
+     - flutter build apk --no-sound-null-safety
   artifacts:
     paths:
       - build/app/outputs/apk/release/app-release.apk
