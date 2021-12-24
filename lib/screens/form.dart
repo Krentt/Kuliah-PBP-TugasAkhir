@@ -56,7 +56,7 @@ class _BelajarFormState extends State<BelajarForm> {
                   },
                   validator: (value) =>
                       value == null ? 'Sex tidak boleh kosong!' : null,
-                  items: <String>['Man', 'Woman', 'Unisex']
+                  items: <String>['Male', 'Female', 'Unisex']
                       .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
