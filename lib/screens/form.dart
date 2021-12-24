@@ -25,7 +25,7 @@ class _BelajarFormState extends State<BelajarForm> {
   String? dropdownValueSize;
   String? dropdownValueModel;
   String? dropdownValueColor;
-  File? valueType;
+  var valueType;
 
   @override
   Widget build(BuildContext context) {
@@ -212,7 +212,10 @@ class _BelajarFormState extends State<BelajarForm> {
                                     "\n" +
                                     "Color: " +
                                     dropdownValueColor! +
-                                    "\n"),
+                                    "\n" +
+                                    "\n" +
+                                    "Type: " +
+                                    valueType.toString()),
                                 actions: <Widget>[
                                   TextButton(
                                     onPressed: () =>

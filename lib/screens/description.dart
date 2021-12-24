@@ -1,4 +1,8 @@
+import 'dart:convert';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class ProductDescription extends StatelessWidget {
   const ProductDescription({
@@ -7,6 +11,25 @@ class ProductDescription extends StatelessWidget {
   }) : super(key: key);
 
   final GestureTapCallback? pressOnSeeMore;
+
+  Future<Map<String, dynamic>> _fecthDataDesc() async {
+    var result = await http.get("https://pbp-c07.herokuapp.com/data-deskripsi/");
+    Map<String, dynamic> map = json.decode(result.body);
+    return map;
+  }
+
+  // Future<Album> fetchAlbum() async {
+  //   final response =
+  //   await http.get('https://jsonplaceholder.typicode.com/albums/1');
+  //
+  //   // Appropriate action depending upon the
+  //   // server response
+  //   if (response.statusCode == 200) {
+  //     return Album.fromJson(json.decode(response.body));
+  //   } else {
+  //     throw Exception('Failed to load album');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +49,7 @@ class ProductDescription extends StatelessWidget {
         // Align(
         //   alignment: Alignment.centerRight,
         //   child: Container(
-        //     padding: EdgeInsets.all(15),
+        //     padding: EdgeInsets.all(0),
         //     width: 64,
         //     decoration: BoxDecoration(
         //       color:
@@ -36,12 +59,7 @@ class ProductDescription extends StatelessWidget {
         //         bottomLeft: Radius.circular(20),
         //       ),
         //     ),
-        //     child: SvgPicture.asset(
-        //       "assets/icons/Heart Icon_2.svg",
-        //       color:
-        //           product.isFavourite ? Color(0xFFFF4848) : Color(0xFFDBDEE4),
-        //       height: getProportionateScreenWidth(16),
-        //     ),
+        //     child: TextButton(child: Text("Next"),onPressed: (){},)
         //   ),
         // ),
         Padding(
@@ -50,8 +68,8 @@ class ProductDescription extends StatelessWidget {
             right: 64,
           ),
           child: Text(
-            "Masker bedah atau bisa disebut sebagai masker medis yang biasanya berwarna hijau atau biru. Masker jenis ini mampu menahan droplet sekitar 80-90 persen. Masker ini hanya bisa digunakan satu kali pakai dalam waktu 4 jam pemakaian. Masker ini terutama wajib digunakan oleh pasien sakit dan petugas kesehatan yang tidak menangani pasien COVID-19 secara langsung. Petugas yang menangani pasien COVID-19 secara langsung wajib mengenakan masker N-95 dan APD level 3",
-            maxLines: 3,
+              "Every face is unique, and with our customized mask printing, now every face mask can be, too. We’re here to help you design your own mask!",
+            maxLines:3,
           ),
         ),
         Padding(
@@ -64,9 +82,118 @@ class ProductDescription extends StatelessWidget {
               showDialog(
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
-                          title: const Text("Description Message"),
-                          content: Text(
-                              "Masker bedah atau bisa disebut sebagai masker medis yang biasanya berwarna hijau atau biru. Masker jenis ini mampu menahan droplet sekitar 80-90 persen. Masker ini hanya bisa digunakan satu kali pakai dalam waktu 4 jam pemakaian. Masker ini terutama wajib digunakan oleh pasien sakit dan petugas kesehatan yang tidak menangani pasien COVID-19 secara langsung. Petugas yang menangani pasien COVID-19 secara langsung wajib mengenakan masker N-95 dan APD level 3"),
+                          title: const Text("Custom Mask Style"),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                            TextButton(child: Text("SURGICAL"), onPressed: (){
+                              Navigator.pop(context);
+                              showDialog(context: context, builder: (BuildContext context) => AlertDialog(
+                                title: const Text("SURGICAL TYPE?"),
+                                content: FutureBuilder<Map<String, dynamic>>(
+                                  future: _fecthDataDesc(),
+                                  builder: (context, snapshot){
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.waiting) {
+                                      return Text("Loading...");
+                                    } else {
+                                      if (snapshot.hasData){
+                                        return Text(snapshot.data!["SURGICAL"].toString());
+                                      } else {
+                                        return Text('${snapshot.error}');
+                                      }
+                                    }
+                                  },
+                                ),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(context, 'Close'),
+                                    child: const Text('Close'),
+                                  )
+                                ],
+                              ));
+                            },),TextButton(child: Text("SPONGE"), onPressed: (){
+                              Navigator.pop(context);
+                              showDialog(context: context, builder: (BuildContext context) => AlertDialog(
+                                title: const Text("SPONGE TYPE?"),
+                                content: FutureBuilder<Map<String, dynamic>>(
+                                  future: _fecthDataDesc(),
+                                  builder: (context, snapshot){
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.waiting) {
+                                      return Text("Loading...");
+                                    } else {
+                                      if (snapshot.hasData){
+                                        return Text(snapshot.data!["SPONGE"].toString());
+                                      } else {
+                                        return Text('${snapshot.error}');
+                                      }
+                                    }
+                                  },
+                                ),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(context, 'Close'),
+                                    child: const Text('Close'),
+                                  )
+                                ],
+                              ));
+                            },),TextButton(child: Text("PITTA"), onPressed: (){
+                              Navigator.pop(context);
+                              showDialog(context: context, builder: (BuildContext context) => AlertDialog(
+                                title: const Text("PITTA TYPE?"),
+                                content: FutureBuilder<Map<String, dynamic>>(
+                                  future: _fecthDataDesc(),
+                                  builder: (context, snapshot){
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.waiting) {
+                                      return Text("Loading...");
+                                    } else {
+                                      if (snapshot.hasData){
+                                        return Text(snapshot.data!["PITTA"].toString());
+                                      } else {
+                                        return Text('${snapshot.error}');
+                                      }
+                                    }
+                                  },
+                                ),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(context, 'Close'),
+                                    child: const Text('Close'),
+                                  )
+                                ],
+                              ));
+                            },),TextButton(child: Text("CLOTH"), onPressed: (){
+                              Navigator.pop(context);
+                              showDialog(context: context, builder: (BuildContext context) => AlertDialog(
+                                title: const Text("CLOTH TYPE?"),
+                                content: FutureBuilder<Map<String, dynamic>>(
+                                  future: _fecthDataDesc(),
+                                  builder: (context, snapshot){
+                                    if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                      return Text("Loading...");
+                                    } else {
+                                      if (snapshot.hasData){
+                                        return Text(snapshot.data!["CLOTH"].toString());
+                                      } else {
+                                        return Text('${snapshot.error}');
+                                      }
+                                    }
+                                  },
+                                ),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(context, 'Close'),
+                                    child: const Text('Close'),
+                                  )
+                                ],
+                              ));
+                            },),
+                          ],
+
+                          ),
                           actions: <Widget>[
                             TextButton(
                               onPressed: () => Navigator.pop(context, 'Close'),
