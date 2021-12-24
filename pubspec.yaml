@@ -38,7 +38,7 @@ dependencies:
   http: any
   url_launcher: any
   table_sticky_headers: ^2.0.0
-  cloudinary_sdk: ^1.0.0+1
+  cloudinary_public: any
   image_picker_form_field:
 
 dev_dependencies:
