@@ -34,7 +34,7 @@ class _ShoppingCartFormState extends State<ShoppingCartForm> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Material(
         child: Container(
             margin: const EdgeInsets.all(10.0),
             child: SingleChildScrollView(
@@ -354,7 +354,7 @@ class _ShoppingCartFormState extends State<ShoppingCartForm> {
                                         child: Text('Error'),
                                       );
                                     } else if (snapshot.hasData) {
-                                      if (snapshot.data!.user != 0) {
+                                      if (snapshot.data!.user == 0) {
                                         return const Center(
                                           child: Text('Login first',
                                               style: TextStyle(color: Colors.red)),
