@@ -208,7 +208,10 @@ class _BelajarFormState extends State<BelajarForm> {
                                     "\n" +
                                     "Color: " +
                                     dropdownValueColor! +
-                                    "\n"),
+                                    "\n" +
+                                    "\n" +
+                                    "Type: " +
+                                    valueType.toString()),
                                 actions: <Widget>[
                                   TextButton(
                                     onPressed: () =>
