@@ -1,10 +1,13 @@
-import 'package:cloudinary_sdk/cloudinary_sdk.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:image_picker_form_field/image_picker_form_field.dart';
+import 'package:cloudinary_public/cloudinary_public.dart';
+
+final cloudinary =
+    CloudinaryPublic("dvfyxrw6z", "custom_mask_preset", cache: false);
 
 class BelajarForm extends StatefulWidget {
   const BelajarForm({Key? key}) : super(key: key);
@@ -219,23 +222,35 @@ class _BelajarFormState extends State<BelajarForm> {
                                   TextButton(
                                       child: const Text('Ok'),
                                       onPressed: () async {
-                                        var request = http.MultipartRequest(
-                                            'POST',
-                                            Uri.parse(
-                                                'https://pbp-c07.herokuapp.com/add_custom/'));
+                                        try {
+                                          final cldRsp =
+                                              await cloudinary.uploadFile(
+                                                  CloudinaryFile.fromFile(
+                                                      valueType!.path
+                                                          .toString(),
+                                                      resourceType:
+                                                          CloudinaryResourceType
+                                                              .Image));
 
-                                        request.fields['text'] =
-                                            jsonEncode(<String, String?>{
-                                          'sex': dropdownValue,
-                                          'size': dropdownValueSize,
-                                          'color': dropdownValueColor,
-                                          'model': dropdownValueModel,
-                                        });
-                                        request.files.add(
-                                            await http.MultipartFile.fromPath(
-                                                'image', valueType!.path));
-                                        final response = await request.send();
-
+                                          final response = await http.post(
+                                              Uri.parse(
+                                                  'https://pbp-c07.herokuapp.com/add_custom/'),
+                                              headers: <String, String>{
+                                                'Content-Type':
+                                                    'application/json; charset=UTF-8'
+                                              },
+                                              body:
+                                                  jsonEncode(<String, String?>{
+                                                'sex': dropdownValue,
+                                                'size': dropdownValueSize,
+                                                'color': dropdownValueColor,
+                                                'model': dropdownValueModel,
+                                                'style': cldRsp.publicId
+                                              }));
+                                        } on CloudinaryException catch (e) {
+                                          print(e.message);
+                                          print(e.request);
+                                        }
                                         // Navigator.pop(context);
                                       }),
                                 ],
