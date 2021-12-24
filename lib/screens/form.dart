@@ -1,3 +1,4 @@
+import 'package:cloudinary_sdk/cloudinary_sdk.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:convert';
@@ -218,20 +219,23 @@ class _BelajarFormState extends State<BelajarForm> {
                                   TextButton(
                                       child: const Text('Ok'),
                                       onPressed: () async {
-                                        final response = await http.post(
+                                        var request = http.MultipartRequest(
+                                            'POST',
                                             Uri.parse(
-                                                'https://pbp-c07.herokuapp.com/add_custom/'),
-                                            headers: <String, String>{
-                                              'Content-Type':
-                                                  'application/json; charset=UTF-8'
-                                            },
-                                            body: jsonEncode(<String, String?>{
-                                              'sex': dropdownValue,
-                                              'size': dropdownValueSize,
-                                              'color': dropdownValueColor,
-                                              'model': dropdownValueModel,
-                                              'style': valueType.toString(),
-                                            }));
+                                                'https://pbp-c07.herokuapp.com/add_custom/'));
+
+                                        request.fields['text'] =
+                                            jsonEncode(<String, String?>{
+                                          'sex': dropdownValue,
+                                          'size': dropdownValueSize,
+                                          'color': dropdownValueColor,
+                                          'model': dropdownValueModel,
+                                        });
+                                        request.files.add(
+                                            await http.MultipartFile.fromPath(
+                                                'image', valueType!.path));
+                                        final response = await request.send();
+
                                         // Navigator.pop(context);
                                       }),
                                 ],
